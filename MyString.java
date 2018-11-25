@@ -1,13 +1,16 @@
 public class MyString implements CharSequence{
   private char[] data;
   public MyString(CharSequence s){
-    for (int a = 0; a < s.length(); a++) {
-      data[a] = s.charAt(a);
+    data = new char[s.length()];
+    if (s.length() > 0) {
+      for (int a = 0; a < s.length(); a++) {
+        data[a] = s.charAt(a);
+      }
     }
   }
 
   public char charAt(int index) {
-    if ((index < 0) || (index > (data.length - 1))) {
+    if ((index < 0) || (index > (length() - 1))) {
       throw new IndexOutOfBoundsException();
     }
     else {
@@ -21,7 +24,7 @@ public class MyString implements CharSequence{
 
   public CharSequence subSequence(int start, int end) {
     String sub = "";
-    if ((start < 0) || (end < 0) || (end > data.length) || (start > end)) {
+    if ((start < 0) || (end < 0) || (end > length()) || (start > end)) {
       throw new IndexOutOfBoundsException();
     }
     for (int a = start; a < end; a++) {
@@ -32,8 +35,10 @@ public class MyString implements CharSequence{
 
   public String toString() {
     String str = "";
-    for (int a = 0; a < data.length; a++) {
-      str = str + data[a];
+    if (length() > 0) {
+      for (int a = 0; a < length(); a++) {
+        str = str + data[a];
+      }
     }
     return str;
   }
