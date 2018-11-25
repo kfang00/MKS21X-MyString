@@ -46,27 +46,31 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
 
   public int compareTo(T o) {
     int compare = 0;
-    if (o.length() == length()) {
-      for (int a = 0; a < length(); a++) {
-        if (!o.charAt(a).equals(data.charAt(a))) {
-	  if ((o.charAt(a) - 0) > (data.charAt(a) - 0)) {
-	    return -1;
-	  }
-	  else {
-	    return 1;
-	  }
-	}
-	return 0;
-      }
+    if (o == null) {
+      throw new NullPointerException();
     }
     else {
-      if (o.length() > length()) {
-	return -1;
+      if (o.length() == length()) {
+        for (int a = 0; a < length(); a++) {
+          if (!o.charAt(a).equals(data.charAt(a))) {
+	    if ((o.charAt(a) - 0) > (data.charAt(a) - 0)) {
+	      return -1;
+	    }
+	    else {
+	      return 1;
+	    }
+	  }
+	  return 0;
+        }
       }
       else {
-	return 1;
+        if (o.length() > length()) {
+	  return -1;
+        }
+        else {
+	  return 1;
+        }
       }
     }
   }
-
 }
