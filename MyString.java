@@ -7,7 +7,12 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
   }
 
   public char charAt(int index) {
-    return data[index];
+    if ((index < 0) || (index > (data.length - 1))) {
+      throw new IndexOutOfBoundsException;
+    }
+    else {
+      return data[index];
+    }
   }
 
   public int length() {
