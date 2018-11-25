@@ -7,7 +7,7 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
   }
 
   public char charAt(int index) {
-
+    return data[index];
   }
 
   public int length() {
