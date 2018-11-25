@@ -79,7 +79,34 @@ public class Driver {
 						}
 					}
 				}
+		// Testing MyString.compareTo()
+			for (int j = 0; j < cases.length; j++) {
+				c = cases[j];
+				d = new MyString(c);
+				try {
+					if (Math.signum(a.compareTo(c)) != Math.signum(b.compareTo(d))) {
+						System.out.println("Unwanted Exception in compareTo()");
+						System.out.println("\tInput:          \""+b+"\".compareTo(\""+d+"\")");
+						System.out.println("\tDesired result: "+sgn(a.compareTo(c)));
+						System.out.println("\tYour result:    "+sgn(b.compareTo(d)));
+						return;
+					}
+				} catch (Exception e) {
+					System.out.println("Unwanted Exception in compareTo()");
+					System.out.println("\tInput:          \""+b+"\", \""+d+"\"");
+					System.out.println("\tDesired result: "+sgn(a.compareTo(c)));
+					System.out.println("\nStack Trace:\n");
+					e.printStackTrace();
+					return;
+				}
+			}
 		}
 		System.out.println("Your code passed every test. Well done!");
+	}
+
+	private static String sgn(int i) {
+		if (i > 0) return "something positive";
+		if (i < 0) return "something negative";
+		return "0";
 	}
 }
