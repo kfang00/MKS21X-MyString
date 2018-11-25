@@ -39,6 +39,25 @@ public class Driver {
 					System.out.println("\tYour result:    "+b.length());
 					return;
 			}
+		// Testing MyString.charAt()
+			for (int j = 0; j < a.length(); j++) {
+				try {
+					if (a.charAt(j) != b.charAt(j)) {
+						System.out.println("Error in charAt():");
+						System.out.println("\tInput:          \""+b+"\".charAt("+j+")");
+						System.out.println("\tDesired result: '"+a.charAt(j)+"'");
+						System.out.println("\tYour result:    '"+b.charAt(j)+"'");
+						return;
+					}
+				} catch (Exception e) {
+					System.out.println("Unwanted Exception in charAt()");
+					System.out.println("\tInput:          \""+b+"\".charAt("+j+")");
+					System.out.println("\tDesired result: '"+a.charAt(j)+"'");
+					System.out.println("\nStack Trace:\n");
+					e.printStackTrace();
+					return;
+				}
+			}
 		}
 		System.out.println("Your code passed every test. Well done!");
 	}
