@@ -1,4 +1,4 @@
-public class MyString implements CharSequence,Comparable<CharSequence>{
+public class MyString implements CharSequence{
   private char[] data;
   public MyString(CharSequence s){
     for (int a = 0; a < s.length(); a++) {
@@ -8,7 +8,7 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
 
   public char charAt(int index) {
     if ((index < 0) || (index > (data.length - 1))) {
-      throw new IndexOutOfBoundsException;
+      throw new IndexOutOfBoundsException();
     }
     else {
       return data[index];
@@ -20,12 +20,12 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
   }
 
   public CharSequence subSequence(int start, int end) {
-    CharSequence sub = new CharSequence();
+    String sub = "";
     if ((start < 0) || (end < 0) || (end > data.length) || (start > end)) {
-      throw new IndexOutOfBoundsException;
+      throw new IndexOutOfBoundsException();
     }
     for (int a = start; a < end; a++) {
-      sub[a] = data[a];
+      sub = sub + data[a];
     }
     return sub;
   }
