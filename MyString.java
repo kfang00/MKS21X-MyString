@@ -1,4 +1,4 @@
-public class MyString implements CharSequence{
+public class MyString implements CharSequence,Comparable<CharSequence>{
   private char[] data;
   public MyString(CharSequence s){
     data = new char[s.length()];
@@ -44,5 +44,29 @@ public class MyString implements CharSequence{
     return str; //Returns a string containing the characters in this sequence in the same order as this sequence
   }
 
+  public int compareTo(T o) {
+    int compare = 0;
+    if (o.length() == length()) {
+      for (int a = 0; a < length(); a++) {
+        if (!o.charAt(a).equals(data.charAt(a))) {
+	  if ((o.charAt(a) - 0) > (data.charAt(a) - 0)) {
+	    return -1;
+	  }
+	  else {
+	    return 1;
+	  }
+	}
+	return 0;
+      }
+    }
+    else {
+      if (o.length() > length()) {
+	return -1;
+      }
+      else {
+	return 1;
+      }
+    }
+  }
 
 }
