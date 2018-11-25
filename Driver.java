@@ -31,6 +31,14 @@ public class Driver {
 				e.printStackTrace();
 				return;
 			}
+		// Testing MyString.length()
+			if (b.length() != a.length()) {
+					System.out.println("Error in length():");
+					System.out.println("\tInput:          \""+b+"\"");
+					System.out.println("\tDesired result: "+a.length());
+					System.out.println("\tYour result:    "+b.length());
+					return;
+			}
 		}
 		System.out.println("Your code passed every test. Well done!");
 	}
