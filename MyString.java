@@ -11,10 +11,10 @@ public class MyString implements CharSequence{
 
   public char charAt(int index) {
     if ((index < 0) || (index > (length() - 1))) {
-      throw new IndexOutOfBoundsException();
+      throw new IndexOutOfBoundsException(); //if the index argument is negative or not less than length()
     }
     else {
-      return data[index];
+      return data[index]; //Returns the char value at the specified index
     }
   }
 
