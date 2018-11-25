@@ -23,7 +23,11 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
   }
 
   public String toString() {
-
+    String str = "";
+    for (int a = 0; a < data.length; a++) {
+      str = str + data[a];
+    }
+    return str;
   }
 
 
