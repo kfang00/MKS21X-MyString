@@ -19,7 +19,7 @@ public class MyString implements CharSequence{
   }
 
   public int length() {
-    return data.length;
+    return data.length; //Returns the length of character sequence
   }
 
   public CharSequence subSequence(int start, int end) {
@@ -40,7 +40,7 @@ public class MyString implements CharSequence{
         str = str + data[a];
       }
     }
-    return str;
+    return str; //Returns a string containing the characters in this sequence in the same order as this sequence
   }
 
 
