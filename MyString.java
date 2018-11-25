@@ -45,12 +45,11 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
   }
 
   public int compareTo(T o) {
-    int compare = 0;
     if (o == null) {
-      throw new NullPointerException();
+      throw new NullPointerException(); //if the specified object is null
     }
     else {
-      if (o.length() == length()) {
+      if (o.length() == length()) { //if equal length then you can loop through and compare every single character
         for (int a = 0; a < length(); a++) {
           if (!o.charAt(a).equals(data.charAt(a))) {
 	    if ((o.charAt(a) - 0) > (data.charAt(a) - 0)) {
@@ -63,14 +62,15 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
 	  return 0;
         }
       }
-      else {
+      else { //if unequal length then the one with more chars is greater
         if (o.length() > length()) {
 	  return -1;
         }
         else {
 	  return 1;
         }
-      }
+      } 
+    //Returns a negative integer, zero, or a positive integer as this object is less than, equal to, or greater than the specified object.
     }
   }
 }
