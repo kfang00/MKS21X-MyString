@@ -4,7 +4,7 @@ public class MyString implements CharSequence{
     data = new char[s.length()];
     if (s.length() > 0) {
       for (int a = 0; a < s.length(); a++) {
-        data[a] = s.charAt(a);
+        data[a] = s.charAt(a); //converting to an array of characters
       }
     }
   }
