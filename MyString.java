@@ -21,6 +21,9 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
 
   public CharSequence subSequence(int start, int end) {
     CharSequence sub = new CharSequence();
+    if ((start < 0) || (end < 0) || (end > data.length) || (start > end)) {
+      throw new IndexOutOfBoundsException;
+    }
     for (int a = start; a < end; a++) {
       sub[a] = data[a];
     }
