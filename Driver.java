@@ -58,6 +58,27 @@ public class Driver {
 					return;
 				}
 			}
+		// Testing MyString.subSequence()
+				for (int j = 0; j < a.length(); j++) {
+					for (int k = j; k <= a.length(); k++) {
+						try {
+							if (!a.subSequence(j,k).equals(b.subSequence(j,k).toString())) {
+								System.out.println("Error in subSequence():");
+								System.out.println("\tInput:          \""+b+"\".subsequence("+j+", "+k+")");
+								System.out.println("\tDesired result: \""+a.subSequence(j,k)+"\"");
+								System.out.println("\tYour result:    \""+b.subSequence(j,k)+"\"");
+								return;
+							}
+						} catch (Exception e) {
+							System.out.println("Unwanted Exception in subSequence()");
+							System.out.println("\tInput:          \""+b+"\".subsequence("+j+", "+k+")");
+							System.out.println("\tDesired result: \""+a.subSequence(j,k)+"\"");
+							System.out.println("\nStack Trace:\n");
+							e.printStackTrace();
+							return;
+						}
+					}
+				}
 		}
 		System.out.println("Your code passed every test. Well done!");
 	}
