@@ -25,12 +25,13 @@ public class MyString implements CharSequence{
   public CharSequence subSequence(int start, int end) {
     String sub = "";
     if ((start < 0) || (end < 0) || (end > length()) || (start > end)) {
-      throw new IndexOutOfBoundsException();
+      throw new IndexOutOfBoundsException(); //if start or end are negative, if end is greater than length(), or if start is greater than end
     }
     for (int a = start; a < end; a++) {
       sub = sub + data[a];
     }
-    return sub;
+    return sub; //Returns a CharSequence that is a subsequence of this sequence 
+		//The subsequence starts with the char value at the specified index and ends with the char value at index end - 1
   }
 
   public String toString() {
