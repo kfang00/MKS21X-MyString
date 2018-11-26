@@ -44,33 +44,37 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
     return str; //Returns a string containing the characters in this sequence in the same order as this sequence
   }
 
-  public int compareTo(T o) {
+  public int compareTo(CharSequence o) {
+    int len = 0;
     if (o == null) {
       throw new NullPointerException(); //if the specified object is null
     }
     else {
-      if (o.length() == length()) { //if equal length then you can loop through and compare every single character
-        for (int a = 0; a < length(); a++) {
-          if (!o.charAt(a).equals(data.charAt(a))) {
-	    if ((o.charAt(a) - 0) > (data.charAt(a) - 0)) {
-	      return -1;
-	    }
-	    else {
-	      return 1;
-	    }
+      if (o.length() > length()) {
+	len = length();
+      }
+      else {
+	len = o.length(); //so I don't go out of bounds
+      }
+      for (int a = 0; a < len; a++) {
+        if (o.charAt(a) != (charAt(a))) {
+	  if ((o.charAt(a) - 0) > (charAt(a) - 0)) {// like a dictionary
+	    return -1;
 	  }
-	  return 0;
+	  else {
+	    return 1; //Returns a negative integer, zero, or a positive integer as this object is less than, equal to, or greater than the specified object.
+	  }
         }
       }
-      else { //if unequal length then the one with more chars is greater
-        if (o.length() > length()) {
-	  return -1;
-        }
-        else {
-	  return 1;
-        }
-      } 
-    //Returns a negative integer, zero, or a positive integer as this object is less than, equal to, or greater than the specified object.
+      if (o.length() > length()) { // in case there are cases like hell compared to hello
+	return -1;
+      }
+      else if (o.length() < length()) {
+	return 1;
+      }
+      else {
+	return 0;
+      }
     }
   }
 }
