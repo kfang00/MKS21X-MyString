@@ -74,7 +74,7 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
       }
       else {
 	return 0;
-      }
+      }//test
     }
   }
 }
